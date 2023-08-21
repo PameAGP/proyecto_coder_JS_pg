@@ -14,7 +14,7 @@ if (ingreso == "s" && "S") {
         pass = prompt('Ingrese contraseña:');
 
     }
-    user="cliente";
+    user = "cliente";
     alert('¡Bienvenido, ' + user + '!');
 
 
@@ -28,7 +28,7 @@ if (ingreso == "s" && "S") {
 
 
 
-let id_prod = prompt('ID de producto, 0 para resultado de carrito');
+let id_prod = prompt('Seleccione producto por número, 0 pnara finalizar: \n1. Cera Pomada Cikonielf Styling. \n2. Cera para peinar profesional Shock. \n3. Cera Pelo & Barba Capilatis Hombre. \n4. Cera Gel Vikingo para Barba. \n5. Crema de peinar Pantene. \n6. Crema Para Peinar Pantene Colágeno. \n7. Gel Primicia Modelador Efecto Mojado. \n8. DR. SELBY - fijador para cabello. \n9. Gel Calypso Fijador Fuerte. .\n10. Cera En Polvo Golden Moustache Efecto Matte.');
 let total = 0
 let carrito_nom = ''
 while (id_prod != "0") {
@@ -83,12 +83,16 @@ while (id_prod != "0") {
             precio = parseInt('350')
             alert(nom_pro + ' $' + precio)
             break;
+        default:
+            alert("Selección incorrecta, seleccione un número de producto del 1 al 10.");
+            nom_pro = '--'
+            total = total - precio;
     }
 
     carrito_nom = carrito_nom + '\n' + nom_pro;
     total = total + precio;
-    console.log('Precio sin descuento: '+total);
-    id_prod = prompt('ID de producto, 0 para resultado de carrito');
+    console.log('Precio sin descuento: ' + total);
+    id_prod = prompt('Seleccione producto por número, 0 pnara finalizar: \n1. Cera Pomada Cikonielf Styling. \n2. Cera para peinar profesional Shock. \n3. Cera Pelo & Barba Capilatis Hombre. \n4. Cera Gel Vikingo para Barba. \n5. Crema de peinar Pantene. \n6. Crema Para Peinar Pantene Colágeno. \n7. Gel Primicia Modelador Efecto Mojado. \n8. DR. SELBY - fijador para cabello. \n9. Gel Calypso Fijador Fuerte. .\n10. Cera En Polvo Golden Moustache Efecto Matte.');
 
 
 }
@@ -97,25 +101,25 @@ let es_cliente;
 let pago;
 let iva = total * 0.20;
 
-if (user=='cliente'){
-    es_cliente=true;
+if (user == 'cliente') {
+    es_cliente = true;
     pago = total - iva;
 } else {
-    es_cliente=false;
+    es_cliente = false;
     pago = total;
 }
 
-function informa_total (client, a_pagar){
-    if (client==true){
-        alert("Su carrito contiene: " +carrito_nom);
-        alert("Usted recibió un descuento del IVA de: $" +iva+"\nSu total es de: $" +a_pagar);
-    } else{
-        alert("Su carrito contiene: " +carrito_nom);
-        alert ('Su total es de: $' +a_pagar+ "\nLos clientes registrados reciben descuento del IVA.");
+function informa_total(client, a_pagar) {
+    if (client == true) {
+        alert("Su carrito contiene: " + carrito_nom);
+        alert("Su total es de: $" + total + "\nAplica descuento del IVA de: $" + iva + "\nSu precio final es de: $" + a_pagar);
+    } else {
+        alert("Su carrito contiene: " + carrito_nom);
+        alert('Su total es de: $' + a_pagar + "\nLos clientes registrados reciben descuento del IVA.");
     }
 }
 
-informa_total (es_cliente, pago);
+informa_total(es_cliente, pago);
 
 
 
