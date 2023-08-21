@@ -1,78 +1,121 @@
 
 
+let ingreso = prompt("¿Cuenta con usuario? S/N");
 
-let user = prompt("Ingrese nombre de usuario:");
-let pass = prompt('Ingrese contraseña:');
+if (ingreso == "s" && "S") {
 
-while (user != 'admin' || pass != 'admin') {
+    let user1 = prompt("Ingrese nombre de usuario:");
+    let pass = prompt('Ingrese contraseña:');
 
-    alert("Usuario y/o contraseña incorrecta.");
-    user = prompt("Ingrese nombre de usuario:");
-    pass = prompt('Ingrese contraseña:');
+    while (user1 != 'cliente' || pass != 'cliente') {
 
+        alert("Usuario y/o contraseña incorrecta.");
+        user1 = prompt("Ingrese nombre de usuario:");
+        pass = prompt('Ingrese contraseña:');
+
+    }
+    user="cliente";
+    alert('¡Bienvenido, ' + user + '!');
+
+
+} else if (ingreso == 'n' && 'N') {
+    user = "no";
+    alert('Bienvenido, cliente no registrado');
+} else {
+    user = "no";
+    alert('Error');
 }
 
-alert('¡Bienvenido, ' + user + '!');
 
-function descuento(){
-    precio
-}
 
 let id_prod = prompt('ID de producto, 0 para resultado de carrito');
-let carrito = ''
-
+let total = 0
+let carrito_nom = ''
 while (id_prod != "0") {
     switch (id_prod) {
         case '1':
-            alert('Cera pomada Cikonielf Styling');
-            p1= parseInt('300')
+            nom_pro = 'Cera pomada Cikonielf Styling'
+            precio = parseInt('300')
+            alert(nom_pro + ' $' + precio)
             break;
         case '2':
-            alert('Cera para peinar profesional Shock');
-            p2= parseInt ('800')
+            nom_pro = 'Cera para peinar profesional Shock'
+            precio = parseInt('800')
+            alert(nom_pro + ' $' + precio)
             break;
         case '3':
-            alert('Cera Pelo & Barba Capilatis Hombre');
+            nom_pro = 'Cera Pelo & Barba Capilatis Hombre';
+            precio = parseInt('506')
+            alert(nom_pro + ' $' + precio)
             break;
         case '4':
-            alert('Cera Gel Vikingo para Barba');
+            nom_pro = 'Cera Gel Vikingo para Barba';
+            precio = parseInt('293')
+            alert(nom_pro + ' $' + precio)
             break;
         case '5':
-            alert('Crema de peinar Pantene');
+            nom_pro = 'Crema de peinar Pantene';
+            precio = parseInt('290')
+            alert(nom_pro + ' $' + precio)
             break;
         case '6':
-            alert('Crema Para Peinar Pantene Colágeno');
+            nom_pro = 'Crema Para Peinar Pantene Colágeno';
+            precio = parseInt('620')
+            alert(nom_pro + ' $' + precio)
             break;
         case '7':
-            alert('Gel Primicia Modelador Efecto Mojado');
+            nom_pro = 'Gel Primicia Modelador Efecto Mojado';
+            precio = parseInt('450')
+            alert(nom_pro + ' $' + precio)
             break;
         case '8':
-            alert('DR. SELBY - fijador para cabello')
+            nom_pro = 'DR. SELBY - fijador para cabello'
+            precio = parseInt('130')
+            alert(nom_pro + ' $' + precio)
             break;
         case '9':
-            alert('Gel Calypso Fijador Fuerte')
+            nom_pro = 'Gel Calypso Fijador Fuerte'
+            precio = parseInt('78')
+            alert(nom_pro + ' $' + precio)
             break;
         case '10':
-            alert('Cera En Polvo Golden Moustache Efecto Matte')
+            nom_pro = 'Cera En Polvo Golden Moustache Efecto Matte'
+            precio = parseInt('350')
+            alert(nom_pro + ' $' + precio)
             break;
     }
 
-    carrito = carrito + id_prod +', ';
-    console.log('Productos en carrito:' +carrito);
+    carrito_nom = carrito_nom + nom_pro + ' - ';
+    total = total + precio;
+    console.log('Precio sin descuento: '+total);
     id_prod = prompt('ID de producto, 0 para resultado de carrito');
 
 
 }
 
+let es_cliente;
+let pago;
+let iva = total * 0.20;
 
-/*for(let i=1; i<=3; i++){
-user=prompt("Ingresa tu nombre de usuario:");
-pass=prompt("Ingresa contraseña:");
-if ((user=="admin") && (pass=="admin")){
-    alert ("Usuario correcto");
-    break;
+if (user=='cliente'){
+    es_cliente=true;
+    pago = total - iva;
 } else {
-    alert('Usuario y/o contraseña incorrecta. '+(3-i)+' intentos restantes.');
+    es_cliente=false;
+    pago = total;
 }
-}*/
+
+function informa_total (client, a_pagar){
+    if (client==true){
+        alert("Su carrito contiene: " +carrito_nom);
+        alert("Usted recibió un descuento del IVA de: $" +iva+" Su total es de: $" +a_pagar);
+    } else{
+        alert("Su carrito contiene: " +carrito_nom);
+        alert ('Su total es de: $' +a_pagar);
+    }
+}
+
+informa_total (es_cliente, pago);
+
+
 
