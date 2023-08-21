@@ -85,7 +85,7 @@ while (id_prod != "0") {
             break;
     }
 
-    carrito_nom = carrito_nom + nom_pro + ' - ';
+    carrito_nom = carrito_nom + '\n' + nom_pro;
     total = total + precio;
     console.log('Precio sin descuento: '+total);
     id_prod = prompt('ID de producto, 0 para resultado de carrito');
@@ -108,10 +108,10 @@ if (user=='cliente'){
 function informa_total (client, a_pagar){
     if (client==true){
         alert("Su carrito contiene: " +carrito_nom);
-        alert("Usted recibió un descuento del IVA de: $" +iva+" Su total es de: $" +a_pagar);
+        alert("Usted recibió un descuento del IVA de: $" +iva+"\nSu total es de: $" +a_pagar);
     } else{
         alert("Su carrito contiene: " +carrito_nom);
-        alert ('Su total es de: $' +a_pagar);
+        alert ('Su total es de: $' +a_pagar+ "\nLos clientes registrados reciben descuento del IVA.");
     }
 }
 
