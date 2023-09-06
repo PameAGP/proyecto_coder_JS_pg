@@ -179,10 +179,6 @@ inventario.push(
 
 console.table(inventario);
 
-//Orden de precio
-
-
-
 
 
 //lista todos los productos
@@ -193,7 +189,7 @@ for (const producto of inventario) {
 }
 
 //MENU
-let opcionMenu = prompt("Menú: \n1) Listar productos femeninos. \n2) Listar productos masculinos. \n3) Listar de mayor precio menor precio. \n4) Listar producto de menor a mayor precio. \n5) Listar productos solo de barba. \n6) Listar productos solo de cabello. \n7)Listar todos los productos. \n8) Seleccionar precio máximo. \n9) Agregar a carrito. \n0) SALIR.");
+let opcionMenu = prompt("Menú: \n1) Listar productos femeninos. \n2) Listar productos masculinos. \n3) Listar de mayor precio menor precio. \n4) Listar producto de menor a mayor precio. \n5) Listar productos solo de barba. \n6) Listar productos solo de cabello. \n7)Listar todos los productos. \n8) Seleccionar precio máximo. \n9) Agregar a carrito. \n10) Buscar. \n0) SALIR.");
 
 while (opcionMenu != 0) {
     switch (opcionMenu) {
@@ -311,10 +307,17 @@ while (opcionMenu != 0) {
 
             mensajeDePago(clienteRegistrado, pagar);
             break;
+        case '10':
+            let busqueda = prompt('Buscar...');
+
+            const buscado = inventario.filter((bus) => bus.nombreProducto.includes(busqueda));
+
+            console.table(buscado);
+            break;
         default:
             alert('Seleccione una opción válida');
     }
-    opcionMenu = prompt("Menú: \n1) Listar productos femeninos. \n2) Listar productos masculinos. \n3) Listar de mayor precio menor precio. \n4) Listar producto de menor a mayor precio. \n5) Listar productos solo de barba. \n6) Listar productos solo de cabello. \n7)Listar todos los productos. \n8) Seleccionar precio máximo. \n9) Generar carrito. \n0) SALIR.");
+    opcionMenu = prompt("Menú: \n1) Listar productos femeninos. \n2) Listar productos masculinos. \n3) Listar de mayor precio menor precio. \n4) Listar producto de menor a mayor precio. \n5) Listar productos solo de barba. \n6) Listar productos solo de cabello. \n7)Listar todos los productos. \n8) Seleccionar precio máximo. \n9) Generar carrito. \n10) Buscar. \n0) SALIR.");
 
 }
 
