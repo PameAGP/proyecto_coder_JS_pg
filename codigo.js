@@ -1,29 +1,28 @@
-// let ingreso = prompt("¿Cuenta con usuario? S/N");
+let ingreso = prompt("¿Cuenta con usuario? S/N");
 
-// if (ingreso.toLowerCase() == 's') {
+if (ingreso.toLowerCase() == 's') {
 
-//     let usuarioIngresando = prompt("Ingrese nombreProducto de usuario:");
-//     let pass = prompt('Ingrese contraseña:');
+    let usuarioIngresando = prompt("Ingrese nombreProducto de usuario:");
+    let pass = prompt('Ingrese contraseña:');
 
-//     while (usuarioIngresando != 'cliente' || pass != 'cliente') {
+    while (usuarioIngresando != 'cliente' || pass != 'cliente') {
 
-//         alert("Usuario y/o contraseña incorrecta.");
-//         usuarioIngresando = prompt("Ingrese nombreProducto de usuario:");
-//         pass = prompt('Ingrese contraseña:');
+        alert("Usuario y/o contraseña incorrecta.");
+        usuarioIngresando = prompt("Ingrese nombreProducto de usuario:");
+        pass = prompt('Ingrese contraseña:');
 
-//     }
-//     user = "cliente";
-//     alert('¡Bienvenido, ' + usuarioIngresando + '!');
+    }
+    user = "cliente";
+    alert('¡Bienvenido, ' + usuarioIngresando + '!');
 
-// } else if (ingreso.toLowerCase() == 'n') {
-//     user = "no";
-//     alert('Bienvenido, cliente no registrado');
-// } else {
-//     user = "no";
-//     alert('Error');
-// }
+} else if (ingreso.toLowerCase() == 'n') {
+    user = "no";
+    alert('Bienvenido, cliente no registrado');
+} else {
+    user = "no";
+    alert('Error');
+}
 
-let user = 'cliente';
 
 class producto {
     constructor(
@@ -180,23 +179,20 @@ inventario.push(
 
 console.table(inventario);
 
+//Orden de precio
+
+
+
+
+
 //lista todos los productos
 
 let listadoProductos = "";
 for (const producto of inventario) {
     listadoProductos += producto.idProducto + ") " + producto.nombreProducto + ". Precio: $" + producto.precio + "\n";
 }
-alert(listadoProductos);
 
-console.table(inventario);
-
-
-
-//selecciona el producto por su ID 
-
-
-
-
+//MENU
 let opcionMenu = prompt("Menú: \n1) Listar productos femeninos. \n2) Listar productos masculinos. \n3) Listar de mayor precio menor precio. \n4) Listar producto de menor a mayor precio. \n5) Listar productos solo de barba. \n6) Listar productos solo de cabello. \n7)Listar todos los productos. \n8) Seleccionar precio máximo. \n9) Agregar a carrito. \n0) SALIR.");
 
 while (opcionMenu != 0) {
@@ -216,10 +212,12 @@ while (opcionMenu != 0) {
             productoMasculino(true);
             break;
         case '3':
-            console.table(inventario);
+            inventario.sort((x, y) => y.precio - x.precio);
+            console.table(inventario); 0
             break;
         case '4':
-            console.table(inventario);
+            inventario.sort((x, y) => x.precio - y.precio);
+            console.table(inventario); 0
             break;
         case '5':
             function productoBarba(barba1) {
@@ -281,9 +279,6 @@ while (opcionMenu != 0) {
                 opcionCarro = parseInt(prompt('Ingrese ID de producto: \n' + listadoProductos));
             }
 
-
-
-
             console.log(totalPagar);
 
 
@@ -291,8 +286,6 @@ while (opcionMenu != 0) {
             for (const producto of carro) {
                 productosEnCarrito += producto.nombreProducto + '. Precio: $' + producto.precio + '\n';
             }
-
-            alert('Su carrito: \n' + productosEnCarrito);
 
             let clienteRegistrado;
             let pagar;
@@ -321,7 +314,7 @@ while (opcionMenu != 0) {
         default:
             alert('Seleccione una opción válida');
     }
-    opcionMenu = prompt("Menú: \n1) Listar productos femeninos. \n2) Listar productos masculinos. \n3) Listar de mayor precio menor precio. \n4) Listar producto de menor a mayor precio. \n5) Listar productos solo de barba. \n6) Listar productos solo de cabello. \n7)Listar todos los productos. \n8) Seleccionar precio máximo. \n0) SALIR.");
+    opcionMenu = prompt("Menú: \n1) Listar productos femeninos. \n2) Listar productos masculinos. \n3) Listar de mayor precio menor precio. \n4) Listar producto de menor a mayor precio. \n5) Listar productos solo de barba. \n6) Listar productos solo de cabello. \n7)Listar todos los productos. \n8) Seleccionar precio máximo. \n9) Generar carrito. \n0) SALIR.");
 
 }
 
